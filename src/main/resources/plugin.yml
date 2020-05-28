@@ -1,0 +1,12 @@
+name: ItemLoreEdit
+version: ${project.version}
+main: ru.virtue.itemedit.ItemLoreEdit
+api-version: 1.13
+authors: [CriticaMobs]
+description: Plugin editor you`r lore
+commands:
+  itemedit:
+    aliases:
+      - ie
+      - itemeditlore
+    description: The command will add the ability reload config, as well as to test the plugin on the performance
