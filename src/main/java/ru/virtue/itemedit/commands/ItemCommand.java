@@ -97,51 +97,6 @@ public class ItemCommand implements CommandExecutor, TabCompleter {
                         if(edit.getConfigFile ().isWords ()) words.loadFile ();
                         p.sendMessage (ChatColor.GREEN + "Конфиг перезагружен");
                         break;
-                    case ("test"):
-                        List<String> lore = Arrays.asList ("&7&lТребуемый уровень: 4",
-                                "&r",
-                                "&r&eПрочтя этот документ, вы получите новую способность штурмовой брони «Быстрая активация»: штурмовая броня будет надеваться на 20% быстрее.",
-                                "&r",
-                                "&r&eЭтот справочник можно обменять на &r&aМладший свиток полководца.",
-                                "&r",
-                                "&r&e10 таких документов можно обменять на &r&3Большой справочник изобретателя.",
-                                "&r",
-                                "&r&aДля обмена используйте предмет и в появившемся контекстном меню выберите пункт «Обменять».",
-                                "&r",
-                                "&r&eТовар из Лавки Редкостей.");
-                        ItemStack itemStack = new ItemStack (Material.OAK_BOAT);
-                        ItemMeta meta = itemStack.getItemMeta ();
-                        meta.setDisplayName ("Малый справочник изобретателя");
-                        lore.replaceAll (s -> ChatColor.translateAlternateColorCodes ('&', s));
-                        meta.setLore (lore);
-                        itemStack.setItemMeta (meta);
-                        p.getInventory ().addItem (itemStack);
-                        break;
-                    case ("testcount"):
-                        p.sendMessage("Начинаю тесты");
-                        new BukkitRunnable() {
-                            int time;
-                            @Override
-                            public void run() {
-                                if(time == 100)
-                                {
-                                    time = 0;
-                                    cancel();
-                                }
-                                ItemStack i = p.getInventory().getItemInMainHand();
-                                ItemMeta meta = i.getItemMeta();
-                                List<String> lore = new Reformate (meta.getLore ())
-                                        .setRestriction (edit.getConfigFile ().getLengthLore ())
-                                        .setStringNewLine (edit.getConfigFile ().getStringNewLine ())
-                                        .setSymbolsNoLength(edit.getConfigFile ().getCharNoLength ()).build ();
-                                meta.setLore(lore);
-                                i.setItemMeta(meta);
-                                p.getInventory().setItem(p.getInventory().getHeldItemSlot(), i);
-                                p.sendMessage("Проверка: " + time);
-                                time++;
-                            }
-                        }.runTaskTimer(edit, 2L, 2L);
-                        break;
                     default:
                         p.sendMessage (ChatColor.RED + "Пожалуйста используйте цифры");
                         break;
