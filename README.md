@@ -1,3 +1,3 @@
 Author: CriticaMobs
 
-Plugin editor you`r lore
+ItemLoreEditor - Plugin editor you`r lore
